@@ -1,0 +1,26 @@
+/* Estilização Slides */
+
+:root {
+    --backgroundStart: url(./themes/night/night1.jpg);
+    --backgroundEnd: url(./themes/night/night2.jpg);
+}
+
+.slide {
+    position: fixed;
+    top: 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    animation: slide 5s;
+}
+
+@keyframes slide {
+    from{
+        background-image: var(--backgroundStart);
+    }
+    to{
+        background-image: var(--backgroundEnd);
+    }
+}
