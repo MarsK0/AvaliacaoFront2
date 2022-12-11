@@ -1,12 +1,12 @@
 const accordionItem = document.querySelectorAll('.accordionItem')
-
+console.log(accordionItem)
 accordionItem.forEach((e)=>{
     const accordionHeader = e.querySelector('.accordionHeader')
 
     accordionHeader.addEventListener('click', ()=>{
         const accordionContent = e.querySelector('.accordionContent')
 
-        const contentActivated = document.querySelector('.accordionActive ')
+        const contentActivated = document.querySelector('.accordionActive')
 
         verifyActivated(e, accordionContent, contentActivated)
     })

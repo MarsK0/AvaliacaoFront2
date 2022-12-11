@@ -1,5 +1,6 @@
 import { runTheme } from './js/theme.js'
 // import { themeSongPlayer } from './js/themeSongPlayer.js'
+import { generateIndexPage } from './js/pageGenerator.js'
 
 export class User {
     constructor(username, password, arrMsg){
@@ -8,13 +9,12 @@ export class User {
         this.arrMsg = arrMsg
     }
 }
-
 //ROTINA PRINCIPAL
 
 setUserAdmin()
 runTheme()
+generateIndexPage()
 setLoginAccordionActive()
-
 // themeSongPlayer()
 
 //DECLARAÇÕES DE FUNCTIONS ========================================================
@@ -37,6 +37,8 @@ export function throwAlertError(errorMsg){
 function setLoginAccordionActive(){
     const formLogin = document.getElementById("formLogin")
     const formLoginItem = formLogin.getElementsByClassName('accordionItem')[0]
+    const accordionIcon = formLoginItem.getElementsByClassName('accordionHeader')[0].getElementsByClassName('icon')[0]
+    accordionIcon.textContent = '-'    
     const formLoginContent = formLoginItem.getElementsByClassName('accordionContent')[0]
     formLoginContent.classList.add('accordionActive')
     formLoginContent.style.height = formLoginContent.scrollHeight + 10 + 'px'
