@@ -1,20 +1,3 @@
-//Rotina para gerar a página de login/cadastro ========================================================
-
-export function generateIndexPage(){
-    const index = document.getElementById('index')
-    const header = document.createElement('header')
-    const main = document.createElement('main')
-    const themeControl = createThemeControl()
-    const accordionUserForms = createAccordionUserForms()
-
-    header.appendChild(themeControl)
-    main.appendChild(accordionUserForms)
-
-    index.appendChild(header)
-    index.appendChild(main)
-    
-}
-
 //Rotina para gerar controles de tema
 
 function createThemeControl(){
@@ -49,6 +32,22 @@ function createThemeButtons(theme){
     return themeButton
 }
 
+//Rotina para gerar a página de login/cadastro ========================================================
+
+export function generateIndexPage(){
+    const index = document.getElementById('index')
+    const header = document.createElement('header')
+    const main = document.createElement('main')
+    const themeControl = createThemeControl()
+    const accordionUserForms = createAccordionUserForms()
+
+    header.appendChild(themeControl)
+    main.appendChild(accordionUserForms)
+
+    index.appendChild(header)
+    index.appendChild(main)
+    
+}
 //Rotina para gerar os forms de usuário
 
 function createAccordionUserForms(){
@@ -155,5 +154,8 @@ function createFormInput(formInputId){
 //Rotina para gerar a página Home ====================================================================
 
 export function generateHomePage(){
-
+    const index = document.getElementById('index')
+    const header = document.createElement('header')
+    const main = document.createElement('main')
+    const themeControl = createThemeControl()
 }
