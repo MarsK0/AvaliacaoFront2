@@ -2,11 +2,16 @@
 
 export function generateIndexPage(){
     const index = document.getElementById('index')
+    const header = document.createElement('header')
+    const main = document.createElement('main')
     const themeControl = createThemeControl()
     const accordionUserForms = createAccordionUserForms()
 
-    index.appendChild(themeControl)
-    index.appendChild(accordionUserForms)
+    header.appendChild(themeControl)
+    main.appendChild(accordionUserForms)
+
+    index.appendChild(header)
+    index.appendChild(main)
     
 }
 
@@ -148,3 +153,7 @@ function createFormInput(formInputId){
 }
 
 //Rotina para gerar a página Home ====================================================================
+
+export function generateHomePage(){
+
+}
