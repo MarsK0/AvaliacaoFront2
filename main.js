@@ -13,8 +13,8 @@ export class User {
 
 setUserAdmin()
 runTheme()
-// generateIndexPage()
-// setLoginAccordionActive()
+generateIndexPage()
+setLoginAccordionActive()
 // themeSongPlayer()
 
 //DECLARAÇÕES DE FUNCTIONS ========================================================

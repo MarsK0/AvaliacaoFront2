@@ -155,7 +155,26 @@ function createFormInput(formInputId){
 
 export function generateHomePage(){
     const index = document.getElementById('index')
+    index.innerHTML = ''
     const header = document.createElement('header')
     const main = document.createElement('main')
     const themeControl = createThemeControl()
+    const buttonNewMessage = document.createElement('button')
+    buttonNewMessage.setAttribute('id','buttonNewMessage')
+    buttonNewMessage.textContent = 'Novo Recado'
+    const messageList = document.createElement('div')
+    messageList.setAttribute('id', 'messageList')
+    messageList.classList.add('accordions')
+    const tituloRecados = document.createElement('h2')
+    tituloRecados.textContent = 'Recados'
+
+    messageList.appendChild(tituloRecados)
+
+    header.appendChild(themeControl)
+    header.appendChild(buttonNewMessage)
+
+    main.appendChild(messageList)
+
+    index.appendChild(header)
+    index.appendChild(main)
 }

@@ -21,7 +21,7 @@ header {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 350px;
+    max-width: 450px;
 }
 
 main {
@@ -29,7 +29,6 @@ main {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    margin-top: calc(60vh/4);
 }
 
 #index {
@@ -102,7 +101,6 @@ main {
     #buttonNewMessage {
         width: calc(50% + 95px);
         height: 50px;
-        max-width: 330px;
     }
 
     /* Accordions */
@@ -111,11 +109,21 @@ main {
         display: flex;
         flex-direction: column;
         background-color: silver;
-        padding: 2%;
+        padding: 0 2% 2% 2%;
         border-radius: 16px;
-        height: 60vh;
         width: 90%;
-        max-width: 300px;
+        max-width: 450px;
+    }
+
+    .accordions > h2 {
+        z-index: 1;
+        display: flex;
+        position: sticky;
+        justify-content: center;
+        margin: 0;
+        width: 100%;
+        top: 0;
+        background-color: silver;
     }
     
     .formAccordion {
@@ -166,6 +174,7 @@ main {
 
     #accordionUserForms {
         height: min-content;
+        margin-top: calc(60vh/4);
     }
 
     .formInput {
@@ -175,5 +184,14 @@ main {
 
     #buttonLogin, #buttonRegister {
         width: calc(100% - 10px);
+    }
+
+    /* Accordions lista de mensagem*/
+
+    #messageList {
+        height: min-content;
+        max-height: 60vh;
+        margin-top: 30px;
+        overflow-y: scroll;
     }
  }
