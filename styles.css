@@ -1,11 +1,31 @@
 /* Estilização Slides */
 
 :root {
-    --backgroundStart: url(./themes/night/night1.jpg);
-    --backgroundEnd: url(./themes/night/night2.jpg);
+    --backgroundStart: url(./themes/day/day1.jpg);
+    --backgroundEnd: url(./themes/day/day2.jpg);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+#index {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
 }
 
 .slide {
+    z-index: -1;
     position: fixed;
     top: 0;
     background-position: center;
@@ -24,3 +44,115 @@
         background-image: var(--backgroundEnd);
     }
 }
+
+/* Estilização Index*/
+
+ @media screen and (max-width: 576px){
+
+    /* Estilização controle do tema*/
+
+    #themeControl {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    #themeControl > #themeButtons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 50%;
+    }
+
+    #themeControl > #buttonPlay {
+        display: flex;
+        background-image: url(./assets/play.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 50%;
+        height: 100%;
+        margin-left: 5px;
+        aspect-ratio: 1 / 1;
+    }
+
+    #themeControl > #themeButtons > .themeButton {
+        margin-bottom: 2px;
+    }
+
+    /* Accordions */
+
+    .accordions {
+        display: flex;
+        flex-direction: column;
+        background-color: silver;
+        padding: 2%;
+        border-radius: 16px;
+        height: 60vh;
+        width: 90%;
+        max-width: 300px;
+        margin-top: calc(60vh/4);
+    }
+    
+    .formAccordion {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .accordionItem {
+        border-radius: 5px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    
+    .accordionItem:hover {
+        opacity: 0.9;
+    }
+    
+    .accordionHeader {
+        padding: .1em;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .accordionContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        height: 0;
+        font-size: 1.25em;
+        transition: all .5s ease;
+    }
+    
+    .accordionActive {
+        padding-bottom: 10px;
+    }
+    
+    .accordionHeader > span, .icon {
+        font-weight: 600;
+    }
+    
+    .accordionContent > p {
+        text-align: justify;
+    }
+
+    /* Accordions Forms de Usuário */
+
+    #accordionUserForms {
+        height: min-content;
+    }
+
+    .formInput {
+        width: calc(100% - 10px);
+        margin-bottom: 5px;
+    }
+
+    #buttonLogin, #buttonRegister {
+        width: calc(100% - 10px);
+    }
+ }

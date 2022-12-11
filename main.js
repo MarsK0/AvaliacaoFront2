@@ -10,8 +10,11 @@ export class User {
 }
 
 //ROTINA PRINCIPAL
+
 setUserAdmin()
 runTheme()
+setLoginAccordionActive()
+
 // themeSongPlayer()
 
 //DECLARAÇÕES DE FUNCTIONS ========================================================
@@ -29,5 +32,13 @@ function setUserAdmin(){
 export function throwAlertError(errorMsg){
     alert(errorMsg)
     throw new Error(errorMsg)
+}
+
+function setLoginAccordionActive(){
+    const formLogin = document.getElementById("formLogin")
+    const formLoginItem = formLogin.getElementsByClassName('accordionItem')[0]
+    const formLoginContent = formLoginItem.getElementsByClassName('accordionContent')[0]
+    formLoginContent.classList.add('accordionActive')
+    formLoginContent.style.height = formLoginContent.scrollHeight + 10 + 'px'
 }
 

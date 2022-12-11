@@ -8,11 +8,65 @@
     <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
     <script src="./js/preload.js"></script>
     <title>Mamãe Mandou - Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <audio id="themeSong" src="./themes/themeSong.mp3" loop></audio>
 </head>
 <body>
     <div class="background"></div>
+    <div id="index">
+        <div id="themeControl">
+            <div id="themeButtons">
+                <button class="themeButton">Dia</button>
+                <button class="themeButton">Noite</button>
+                <button class="themeButton">Chuva</button>
+            </div>
+            <button id="buttonPlay"></button>
+        </div>
+
+        <div id="accordionUserForms" class="accordions">
+            <div id="formLogin" class="formAccordion">
+                <div class="accordionItem">
+                    <div class="accordionHeader">
+                        <span>
+                            Login
+                        </span>
+                        <div class="icon">
+                            +
+                        </div>
+                    </div>
+    
+                    <div class="accordionContent">
+                        <input id="inputLoginUser" class="formInput" type="text">
+                        <input id="inputLoginPassword" class="formInput" type="password">
+                        <button id="buttonLogin">LOGIN</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="formRegister" class="formAccodion">
+                <div class="accordionItem">
+                    <div class="accordionHeader">
+                        <span>
+                            Cadastrar
+                        </span>
+                        <div class="icon">
+                            +
+                        </div>
+                    </div>
+    
+                    <div class="accordionContent">
+                        <input id="inputRegisterUser" class="formInput" type="text">
+                        <input id="inputRegisterPass" class="formInput" type="password">
+                        <input id="inputRegisterRepPass" class="formInput" type="password">
+                        <button id="buttonRegister">CADASTRAR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script type="module" src="main.js"></script>
     <script type="module" src="./js/login.js"></script>
+    <script src="./js/accordions.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -5,8 +5,8 @@ const background = document.getElementsByClassName('background')[0]
 // const themeList = document.getElementsByClassName('themeList')[0]
 // const themeOptionButton = Array.from(themeList.querySelectorAll('button'))
 
-let previousBackgroundTheme = 'night'
-let currentBackgroundTheme = 'night'
+let previousBackgroundTheme = 'day'
+let currentBackgroundTheme = 'day'
 let arrBackground = theme(currentBackgroundTheme)
 let arrBackgroundIndex = 1
 
