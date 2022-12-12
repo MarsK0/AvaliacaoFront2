@@ -57,6 +57,8 @@ function registerUser(username, pass, users){
     let newUser = new User(username, pass, [])
     users.push(newUser)
     localStorage.setItem('users', JSON.stringify(users))
+    clearRegisterForm()
+    closeRegisterForm()
     setLoginAccordionActive()
 }
 
@@ -65,4 +67,24 @@ function checkSpaceInPass(pass){
         document.getElementById('formRegisterInputPass').focus()
         throwAlertError('É vetado o uso do caractere espaço na senha!')
     }
+}
+
+function closeRegisterForm(){
+    let formRegister = document.querySelector('.accordionActive')
+    formRegister.style.height = 0
+    formRegister.classList.remove('accordionActive')
+    const formItem = formRegister.parentElement
+    const formHeader = formItem.querySelector('.accordionHeader')
+    const formIcon = formHeader.querySelector('.icon')
+    formIcon.innerHTML = '+'
+}
+
+function clearRegisterForm(){
+    const formRegisterInputUser = document.getElementById('formRegisterInputUser')
+    const formRegisterInputPass = document.getElementById('formRegisterInputPass')
+    const formRegisterInputRepeatPass = document.getElementById('formRegisterInputRepeatPass')
+
+    formRegisterInputUser.value = ''
+    formRegisterInputPass.value = ''
+    formRegisterInputRepeatPass.value = ''
 }
