@@ -1,21 +1,22 @@
 import { User } from '../main.js'
 import { throwAlertError } from '../main.js'
+import { setLoginAccordionActive } from '../main.js'
 
-// formRegisterBtnRegister.addEventListener('click',()=>{
-//     let username = document.getElementById('formRegisterInputUser').value
-//     let pass = document.getElementById('formRegisterInputPass').value
-//     let repeatPass = document.getElementById('formRegisterInputRepeatPass').value
-//     let users = JSON.parse(localStorage.getItem('users'))
+formRegisterBtnRegister.addEventListener('click',()=>{
+    let username = document.getElementById('formRegisterInputUser').value
+    let pass = document.getElementById('formRegisterInputPass').value
+    let repeatPass = document.getElementById('formRegisterInputRepeatPass').value
+    let users = JSON.parse(localStorage.getItem('users'))
 
-//     //ROTINA DE CHECAGEM
-//     isThereBlankFields(username, pass, repeatPass)
-//     checkSpaceInPass(pass)
-//     isUsernameAvailable(username, users)
-//     checkPasswordsMatch(pass, repeatPass)
+    //ROTINA DE CHECAGEM
+    isThereBlankFields(username, pass, repeatPass)
+    checkSpaceInPass(pass)
+    isUsernameAvailable(username, users)
+    checkPasswordsMatch(pass, repeatPass)
 
-//     //EFETIVAÇÃO DO CADASTRO
-//     registerUser(username, pass, users)
-// })
+    //EFETIVAÇÃO DO CADASTRO
+    registerUser(username, pass, users)
+})
 
 //DECLARAÇÕES DE FUNCTIONS ========================================================
 
@@ -56,7 +57,7 @@ function registerUser(username, pass, users){
     let newUser = new User(username, pass, [])
     users.push(newUser)
     localStorage.setItem('users', JSON.stringify(users))
-    window.location.href = './index.html'     
+    setLoginAccordionActive()
 }
 
 function checkSpaceInPass(pass){

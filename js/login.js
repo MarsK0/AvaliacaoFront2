@@ -1,20 +1,21 @@
 import { throwAlertError } from '../main.js'
+import { generateHomePage } from './pageGenerator.js'
 
-// formLoginBtnLogin.addEventListener('click', ()=>{
-//     let username = document.getElementById('formLoginInputUser').value
-//     let pass = document.getElementById('formLoginInputPass').value
-//     let users = JSON.parse(localStorage.getItem('users'))
+formLoginBtnLogin.addEventListener('click', ()=>{
+    let username = document.getElementById('formLoginInputUser').value
+    let pass = document.getElementById('formLoginInputPass').value
+    let users = JSON.parse(localStorage.getItem('users'))
     
-//     //DECLARAÇÃO DE VARIÁVEIS QUE RECEBEM O RETORNO DAS FUNCTIONS
-//     const userLogin = checkLogin(username, pass, users)
+    //DECLARAÇÃO DE VARIÁVEIS QUE RECEBEM O RETORNO DAS FUNCTIONS
+    const userLogin = checkLogin(username, pass, users)
 
-//     //ROTINA DE CHECAGEM
-//     isThereBlankFields(username, pass)
-//     isCredentialsMatching(userLogin)
+    //ROTINA DE CHECAGEM
+    isThereBlankFields(username, pass)
+    isCredentialsMatching(userLogin)
 
-//     //EFETIVAÇÃO DO LOGIN
-//     login(userLogin)
-// })
+    //EFETIVAÇÃO DO LOGIN
+    login(userLogin)
+})
 
 //DECLARAÇÕES DE FUNCTIONS ========================================================
 
@@ -55,5 +56,5 @@ function checkLogin(username, pass, users){
 
 function login(userLogin){
     localStorage.setItem('userLogin', JSON.stringify(userLogin))
-    window.location.href = './home.html'
+    generateHomePage()
 }

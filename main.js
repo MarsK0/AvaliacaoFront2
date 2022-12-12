@@ -34,7 +34,7 @@ export function throwAlertError(errorMsg){
     throw new Error(errorMsg)
 }
 
-function setLoginAccordionActive(){
+export function setLoginAccordionActive(){
     const formLogin = document.getElementById("formLogin")
     const formLoginItem = formLogin.getElementsByClassName('accordionItem')[0]
     const accordionIcon = formLoginItem.getElementsByClassName('accordionHeader')[0].getElementsByClassName('icon')[0]

@@ -1,5 +1,5 @@
 const accordionItem = document.querySelectorAll('.accordionItem')
-console.log(accordionItem)
+
 accordionItem.forEach((e)=>{
     const accordionHeader = e.querySelector('.accordionHeader')
 

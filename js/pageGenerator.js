@@ -85,15 +85,16 @@ function createFormLogin(){
 
     const accordionContent = document.createElement('div')
     accordionContent.classList.add('accordionContent')
-    const inputLoginUser = createFormInput('inputLoginUser')
-    const inputLoginPass = createFormInput('inputLoginPass')
-    const buttonLogin = document.createElement('button')
-    buttonLogin.setAttribute('id','buttonLogin')
-    buttonLogin.textContent = 'LOGIN'
+    const formLoginInputUser = createFormInput('formLoginInputUser')
+    const formLoginInputPass = createFormInput('formLoginInputPass')
+    formLoginInputPass.setAttribute('type','password')
+    const formLoginBtnLogin = document.createElement('button')
+    formLoginBtnLogin.setAttribute('id','formLoginBtnLogin')
+    formLoginBtnLogin.textContent = 'LOGIN'
 
-    accordionContent.appendChild(inputLoginUser)
-    accordionContent.appendChild(inputLoginPass)
-    accordionContent.appendChild(buttonLogin)
+    accordionContent.appendChild(formLoginInputUser)
+    accordionContent.appendChild(formLoginInputPass)
+    accordionContent.appendChild(formLoginBtnLogin)
 
     accordionItem.appendChild(accordionHeader)
     accordionItem.appendChild(accordionContent)
@@ -124,17 +125,19 @@ function createFormRegister(){
 
     const accordionContent = document.createElement('div')
     accordionContent.classList.add('accordionContent')
-    const inputRegisterUser = createFormInput('inputRegisterUser')
-    const inputRegisterPass = createFormInput('inputRegisterPass')
-    const inputRegisterRepPass = createFormInput('inputRegisterRepPass')
-    const buttonRegister = document.createElement('button')
-    buttonRegister.setAttribute('id','buttonRegister')
-    buttonRegister.textContent = 'CADASTRAR'
+    const formRegisterInputUser = createFormInput('formRegisterInputUser')
+    const formRegisterInputPass = createFormInput('formRegisterInputPass')
+    formRegisterInputPass.setAttribute('type','password')
+    const formRegisterInputRepeatPass = createFormInput('formRegisterInputRepeatPass')
+    formRegisterInputRepeatPass.setAttribute('type','password')
+    const formRegisterBtnRegister = document.createElement('button')
+    formRegisterBtnRegister.setAttribute('id','formRegisterBtnRegister')
+    formRegisterBtnRegister.textContent = 'CADASTRAR'
 
-    accordionContent.appendChild(inputRegisterUser)
-    accordionContent.appendChild(inputRegisterPass)
-    accordionContent.appendChild(inputRegisterRepPass)
-    accordionContent.appendChild(buttonRegister)
+    accordionContent.appendChild(formRegisterInputUser)
+    accordionContent.appendChild(formRegisterInputPass)
+    accordionContent.appendChild(formRegisterInputRepeatPass)
+    accordionContent.appendChild(formRegisterBtnRegister)
 
     accordionItem.appendChild(accordionHeader)
     accordionItem.appendChild(accordionContent)
