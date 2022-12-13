@@ -1,23 +1,19 @@
-const accordionItem = document.querySelectorAll('.accordionItem')
+function accordionScript(e){
+    let accordionItem = e.parentElement
 
-accordionItem.forEach((e)=>{
-    const accordionHeader = e.querySelector('.accordionHeader')
+    const accordionContent = accordionItem.querySelector('.accordionContent')
 
-    accordionHeader.addEventListener('click', ()=>{
-        const accordionContent = e.querySelector('.accordionContent')
+    const contentActivated = document.querySelector('.accordionActive')
 
-        const contentActivated = document.querySelector('.accordionActive')
+    verifyActivated(accordionItem, accordionContent, contentActivated)
+}
 
-        verifyActivated(e, accordionContent, contentActivated)
-    })
-})
-
-function verifyActivated(e, accordionContent, contentActivated){
-    const iconItem = e.querySelector('.icon')
+function verifyActivated(accordionItem, accordionContent, contentActivated){
+    const iconItem = accordionItem.querySelector('.icon')
 
     const icons = document.querySelectorAll('.icon')
 
-    icons.forEach((e)=>(e.innerHTML = '+'))
+    icons.forEach((accordionItem)=>(accordionItem.innerHTML = '+'))
 
     if(contentActivated){
         contentActivated.style.height = 0

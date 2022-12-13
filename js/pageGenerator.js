@@ -74,6 +74,7 @@ function createFormLogin(){
 
     const accordionHeader = document.createElement('div')
     accordionHeader.classList.add('accordionHeader')
+    accordionHeader.setAttribute('onclick','accordionScript(this)')
     const accordionHeaderSpan = document.createElement('span')
     accordionHeaderSpan.textContent = 'Login'
     const accordionHeaderIcon = document.createElement('div')
@@ -114,6 +115,7 @@ function createFormRegister(){
 
     const accordionHeader = document.createElement('div')
     accordionHeader.classList.add('accordionHeader')
+    accordionHeader.setAttribute('onclick','accordionScript(this)')
     const accordionHeaderSpan = document.createElement('span')
     accordionHeaderSpan.textContent = 'Cadastrar'
     const accordionHeaderIcon = document.createElement('div')

@@ -118,6 +118,7 @@ function createAccordionItem(){
 function createAccordionHeader(){
     let accordionHeader = document.createElement('div')
     accordionHeader.classList.add('accordionHeader')
+    accordionHeader.setAttribute('onclick','accordionScript(this)')
     return accordionHeader
 }
 
