@@ -73,10 +73,12 @@ const tbody = document.getElementsByTagName('tbody')[0]
 
 
 function geraTabela(){
-    document.getElementById('messageList').innerHTML = ''
+    let messageList = document.getElementById('messageList')
+    console.log(messageList)
+    messageList.innerHTML = ''
     const titleMessageList = document.createElement('h2')
     titleMessageList.textContent = 'Recados'
-    document.getElementById('messageList').appendChild(titleMessageList)
+    messageList.appendChild(titleMessageList)
 
     const userLogin = JSON.parse(localStorage.getItem('userLogin'))
     const userLoginArrMsg = userLogin.arrMsg
@@ -90,18 +92,18 @@ function geraTabela(){
             let accordionContent = createAccordionContent()
             let editMessageButtons = createEditMessageButtons()
             
+            accordionHeaderSpan.textContent = `#${i+1} - ${e[0]}`
+            accordionContent.textContent = e[1]
 
-            btnMsgListEdit = createBtnMsgListEdit(btnMsgListEdit)
-            btnMsgListDelete = createBtnMsgListDelete(btnMsgListDelete)
-            rowButtons = appendButtons(btnMsgListEdit, btnMsgListDelete, rowButtons)
+            accordionItem = accordionItemAssemble(
+                accordionItem, 
+                accordionHeader, 
+                accordionHeaderSpan, 
+                accordionHeaderIcon, 
+                accordionContent, 
+                editMessageButtons)
     
-            msgId.innerHTML = i+1
-            msgDesc.innerHTML = e[0]
-            msgDetail.innerHTML = e[1]
-    
-            appendElementsInRow(msgId, msgDesc, msgDetail, rowButtons, row)
-    
-            tbody.appendChild(row)
+            messageList.appendChild(accordionItem)
         })
     }
 }
@@ -147,6 +149,18 @@ function createEditMessageButtons(){
     editMessageButtons.appendChild(buttonEdit)
     editMessageButtons.appendChild(buttonDelete)
     return editMessageButtons
+}
+
+function accordionItemAssemble(accordionItem, accordionHeader, accordionHeaderSpan, accordionHeaderIcon, accordionContent, editMessageButtons){
+    accordionHeader.appendChild(accordionHeaderSpan)
+    accordionHeader.appendChild(accordionHeaderIcon)
+
+    accordionContent.appendChild(editMessageButtons)
+
+    accordionItem.appendChild(accordionHeader)
+    accordionItem.appendChild(accordionContent)
+    
+    return accordionItem
 }
 
 function editMsg(tableMsgListEdit){

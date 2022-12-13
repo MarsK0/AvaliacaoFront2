@@ -30,3 +30,4 @@ function verifyActivated(e, accordionContent, contentActivated){
         accordionContent.style.height = accordionContent.scrollHeight + 10 + 'px'
     }
 }
+
