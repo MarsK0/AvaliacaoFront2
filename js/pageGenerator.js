@@ -160,7 +160,6 @@ function createFormInput(formInputId){
 
 export function generateHomePage(){
     const index = document.getElementById('index')
-    index.innerHTML = '<button id="tst" onclick="geraTabela()">TESTE</button>'
     const header = document.createElement('header')
     const main = document.createElement('main')
     const themeControl = createThemeControl()
