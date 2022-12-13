@@ -67,7 +67,7 @@ function createAccordionUserForms(){
 function createFormLogin(){
     const formLogin = document.createElement('div')
     formLogin.setAttribute('id','formLogin')
-    formLogin.classList.add('formAccordion')
+    formLogin.classList.add('accordionContainer')
 
     const accordionItem = document.createElement('div')
     accordionItem.classList.add('accordionItem')
@@ -107,7 +107,7 @@ function createFormLogin(){
 function createFormRegister(){
     const formRegister = document.createElement('div')
     formRegister.setAttribute('id','formRegister')
-    formRegister.classList.add('formAccordion')
+    formRegister.classList.add('accordionContainer')
 
     const accordionItem = document.createElement('div')
     accordionItem.classList.add('accordionItem')
@@ -168,10 +168,10 @@ export function generateHomePage(){
     const messageList = document.createElement('div')
     messageList.setAttribute('id', 'messageList')
     messageList.classList.add('accordions')
-    const tituloRecados = document.createElement('h2')
-    tituloRecados.textContent = 'Recados'
+    const titleMessageList = document.createElement('h2')
+    titleMessageList.textContent = 'Recados'
 
-    messageList.appendChild(tituloRecados)
+    messageList.appendChild(titleMessageList)
 
     header.appendChild(themeControl)
     header.appendChild(buttonNewMessage)
