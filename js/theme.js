@@ -91,7 +91,7 @@ function startSlide(){
 //Evento de troca dinâmica dos slides
 export function runTheme(){
     background.addEventListener('animationend', ()=>{
-        // themeListAble()
+        themeListAble()
         if(themeUnchanged()){
             themeStartBackground()
             checkBackgroundIndex()
