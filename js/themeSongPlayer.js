@@ -1,10 +1,9 @@
 const themeSong = document.getElementById('themeSong')
-const btnThemeSongPlay = document.getElementsByClassName('btnThemeSongPlay')[0]
 
 function themeSongPlay(){
     btnThemeSongPlay.style.backgroundImage = 'url(./assets/pause.png)'
     btnThemeSongPlay.style.backgroundPosition = '0'
-    themeSong.play()
+    themeSong.play(btnThemeSongPlay)
 }
 
 function themeSongPause(){
@@ -16,9 +15,9 @@ function themeSongPause(){
 export function themeSongPlayer(){
     btnThemeSongPlay.addEventListener('click', ()=>{
         if(themeSong.paused){
-            themeSongPlay()
+            themeSongPlay(btnThemeSongPlay)
         }else{
-            themeSongPause()
+            themeSongPause(btnThemeSongPlay)
         }
     })
 }

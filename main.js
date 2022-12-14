@@ -1,5 +1,5 @@
 import { runTheme } from './js/theme.js'
-// import { themeSongPlayer } from './js/themeSongPlayer.js'
+import { themeSongPlayer } from './js/themeSongPlayer.js'
 import { generateIndexPage } from './js/pageGenerator.js'
 
 export class User {
@@ -15,7 +15,7 @@ setUserAdmin()
 runTheme()
 generateIndexPage()
 setLoginAccordionActive()
-// themeSongPlayer()
+themeSongPlayer()
 
 //DECLARAÇÕES DE FUNCTIONS ========================================================
 function setUserAdmin(){
