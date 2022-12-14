@@ -13,9 +13,6 @@
 </head>
 <body>
     <div class="background"></div>
-    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-        Launch static backdrop modal
-    </button>
 
     <div id="index"></div>
 
@@ -23,15 +20,15 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header border-bottom border-dark">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar recado</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="cancelMsg()"></button>
                 </div>
                 <div class="modal-body d-flex flex-column">
                     <input id="editMsgDesc" type="text" placeholder="Descrição" class="p-2 mb-3">
                     <textarea id="editMsgDetail" id="" class="p-2" cols="20" rows="10" placeholder="Detalhamento"></textarea>
                 </div>
                 <div class="modal-footer">
-                    <button id="editMsgCancel" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button id="editMsgCancel" type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="cancelMsg()">Cancelar</button>
                     <button id="editMsgSave" type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="msgManipulation()">Salvar</button>
                 </div>
             </div>

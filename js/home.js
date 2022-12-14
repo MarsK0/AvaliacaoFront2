@@ -4,7 +4,7 @@ function msgManipulation(){
     let editMsgDetail = document.getElementById('editMsgDetail')
     const msgID = JSON.parse(localStorage.getItem('msgID'))
 
-    if(msgID === '-1'){
+    if(msgID === -1){
         if(editMsgDesc.value === '' || editMsgDetail.value === ''){
             alert('Preencha ambos os campos!')
             return
@@ -34,7 +34,7 @@ function msgManipulation(){
         const users = JSON.parse(localStorage.getItem('users'))
         const userLogin = JSON.parse(localStorage.getItem('userLogin'))
         const userLoginArrMsg = userLogin.arrMsg
-
+        
         userLoginArrMsg[msgID][0] = editMsgDesc.value
         userLoginArrMsg[msgID][1] = editMsgDetail.value
         
@@ -43,6 +43,8 @@ function msgManipulation(){
         localStorage.setItem('userLogin', JSON.stringify(userLogin))
         localStorage.setItem('users', JSON.stringify(users))
         localStorage.setItem('msgID','-1')
+        editMsgDesc.value = ''
+        editMsgDetail.value = ''
         geraTabela()
     }
 }
@@ -184,6 +186,11 @@ function deleteMsg(msg){
     localStorage.setItem('userLogin', JSON.stringify(userLogin))
     localStorage.setItem('users', JSON.stringify(users))
     geraTabela()
+}
+
+function cancelMsg(){
+    editMsgDesc.value = ''
+    editMsgDetail.value = ''
 }
 
 function createBtnMsgListEdit(btnMsgListEdit){
