@@ -1,17 +1,10 @@
-function editMsg(){
-    localStorage.setItem('param','edit')
-}
-
-function newMsg(){
-    localStorage.setItem('param','new')
-}
-
+//DECLARAÇÕES DE FUNCTIONS ========================================================
 function msgManipulation(){
     let editMsgDesc = document.getElementById('editMsgDesc')
     let editMsgDetail = document.getElementById('editMsgDetail')
-    const param = JSON.parse(localStorage.getItem('param'))
+    const msgID = JSON.parse(localStorage.getItem('msgID'))
 
-    if(param === 'new'){
+    if(msgID === '-1'){
         if(editMsgDesc.value === '' || editMsgDetail.value === ''){
             alert('Preencha ambos os campos!')
             return
@@ -32,9 +25,7 @@ function msgManipulation(){
         editMsgDesc.value = ''
         editMsgDetail.value = ''
         geraTabela()
-    }
-    
-    else if(param === 'edit'){
+    }else{
         if(editMsgDesc.value === '' || editMsgDetail.value === ''){
             alert('Preencha ambos os campos!')
             return
@@ -44,23 +35,18 @@ function msgManipulation(){
         const userLogin = JSON.parse(localStorage.getItem('userLogin'))
         const userLoginArrMsg = userLogin.arrMsg
 
-        userLoginArrMsg[msgGlobalId][0] = editMsgDesc.value
-        userLoginArrMsg[msgGlobalId][1] = editMsgDetail.value
+        userLoginArrMsg[msgID][0] = editMsgDesc.value
+        userLoginArrMsg[msgID][1] = editMsgDetail.value
         
         users[userLogin.id].arrMsg = userLoginArrMsg
 
         localStorage.setItem('userLogin', JSON.stringify(userLogin))
         localStorage.setItem('users', JSON.stringify(users))
-
-        editMsgDesc.value = ''
-        editMsgDetail.value = ''
-        msgGlobalId = -1
+        localStorage.setItem('msgID','-1')
         geraTabela()
     }
 }
 
-
-//DECLARAÇÕES DE FUNCTIONS ========================================================
 function geraTabela(){
     let messageList = document.getElementById('messageList')
     
@@ -81,6 +67,7 @@ function geraTabela(){
             let accordionContent = createAccordionContent()
             let editMessageButtons = createEditMessageButtons()
             
+            accordionHeader.setAttribute('id', `msg${i}`)
             accordionHeaderSpan.textContent = `#${i+1} - ${e[0]}`
             accordionContent.textContent = e[1]
 
@@ -132,10 +119,14 @@ function createAccordionContent(){
 function createEditMessageButtons(){
     let editMessageButtons = document.createElement('div')
     let buttonEdit = document.createElement('button')
+    buttonEdit.classList.add('msgButtonEdit')
     buttonEdit.textContent = 'EDITAR'
+    buttonEdit.setAttribute('onclick','editMsg(this)')
     buttonEdit.setAttribute('data-bs-toggle','modal')
     buttonEdit.setAttribute('data-bs-target','#staticBackdrop')
     let buttonDelete = document.createElement('button')
+    buttonDelete.setAttribute('onclick','deleteMsg(this)')
+    buttonDelete.classList.add('msgButtonDelete')
     buttonDelete.textContent = 'EXCLUIR'
 
     editMessageButtons.appendChild(buttonEdit)
@@ -155,43 +146,34 @@ function accordionItemAssemble(accordionItem, accordionHeader, accordionHeaderSp
     return accordionItem
 }
 
-function editMsg(tableMsgListEdit){
-    let editMsgDesc = document.getElementById('editMsgDesc')
-    let editMsgDetail = document.getElementById('editMsgDetail')
-    const msgRow = tableMsgListEdit.parentElement.parentElement
-    const msgId = Number(msgRow.querySelector('td').innerHTML) - 1
-
+function editMsg(msg){
     const userLogin = JSON.parse(localStorage.getItem('userLogin'))
     const userLoginArrMsg = userLogin.arrMsg
+
+    msgItem = msg.parentElement.parentElement.parentElement
+    msgHeader = msgItem.querySelector('.accordionHeader')
+    msgHeaderId = msgHeader.getAttribute('id')
+    msgId = msgHeaderId.substring(3)
 
     editMsgDesc.value = userLoginArrMsg[msgId][0]
     editMsgDetail.value = userLoginArrMsg[msgId][1]
 
-    msgGlobalId = msgId
-    geraTabela()
+    localStorage.setItem('msgID', msgId)
 }
 
-function editMsgCancel(){
-    let editMsgDesc = document.getElementById('editMsgDesc')
-    let editMsgDetail = document.getElementById('editMsgDetail')
-
-    if(msgGlobalId === -1){
-        editMsgDesc.value = ''
-        editMsgDetail.value = ''
-    }else{
-        editMsgDesc.value = ''
-        editMsgDetail.value = ''
-        msgGlobalId = -1
-    }
+function newMsg(){
+    localStorage.setItem('msgID','-1')
 }
 
-function deleteMsg(tableMsgListDelete){
-    const msgRow = tableMsgListDelete.parentElement.parentElement
-    const msgId = Number(msgRow.querySelector('td').innerHTML) - 1
-
+function deleteMsg(msg){
     const users = JSON.parse(localStorage.getItem('users'))
     const userLogin = JSON.parse(localStorage.getItem('userLogin'))
     let userLoginArrMsg = userLogin.arrMsg
+
+    msgItem = msg.parentElement.parentElement.parentElement
+    msgHeader = msgItem.querySelector('.accordionHeader')
+    msgHeaderId = msgHeader.getAttribute('id')
+    msgId = msgHeaderId.substring(3)
 
     delete userLogin.arrMsg[msgId]
     userLoginArrMsg = userLoginArrMsg.filter(e => e != null)
