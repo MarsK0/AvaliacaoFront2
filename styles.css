@@ -76,14 +76,14 @@ main {
         margin-bottom: 20px;
     }
 
-    #themeControl > #themeButtons {
+    #themeControl > #themeList {
         display: flex;
         flex-direction: column;
         justify-content: center;
         width: 50%;
     }
 
-    #themeControl > #buttonPlay {
+    #themeControl > #btnThemeSongPlay {
         display: flex;
         background-image: url(./assets/play.png);
         background-repeat: no-repeat;
@@ -94,7 +94,7 @@ main {
         aspect-ratio: 1 / 1;
     }
 
-    #themeControl > #themeButtons > .themeButton {
+    #themeControl > #themeList > .themeOptionButton {
         margin-bottom: 2px;
     }
 

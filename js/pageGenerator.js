@@ -1,35 +1,38 @@
+import { themeListSelect } from "./theme.js"
+
 //Rotina para gerar controles de tema
 
 function createThemeControl(){
     const themeControl = document.createElement('div')
     themeControl.setAttribute('id','themeControl')
     
-    const themeButtons = document.createElement('div')
-    themeButtons.setAttribute('id','themeButtons')
+    const themeList = document.createElement('div')
+    themeList.setAttribute('id','themeList')
+    themeList.addEventListener('click', (e)=>themeListSelect(e))
+    const btnThemeSongPlay = document.createElement('button')
+    btnThemeSongPlay.setAttribute('id','btnThemeSongPlay')
 
-    const buttonPlay = document.createElement('button')
-    buttonPlay.setAttribute('id','buttonPlay')
+    const themeButtonDay = createThemeButtons('day', 'Dia')
+    const themeButtonNight = createThemeButtons('night', 'Noite')
+    const themeButtonRain = createThemeButtons('rain', 'Chuva')
 
-    const themeButtonDay = createThemeButtons('day')
-    const themeButtonNight = createThemeButtons('night')
-    const themeButtonRain = createThemeButtons('rain')
-
-    themeButtons.appendChild(themeButtonDay)
-    themeButtons.appendChild(themeButtonNight)
-    themeButtons.appendChild(themeButtonRain)
+    themeList.appendChild(themeButtonDay)
+    themeList.appendChild(themeButtonNight)
+    themeList.appendChild(themeButtonRain)
     
-    themeControl.appendChild(themeButtons)
-    themeControl.appendChild(buttonPlay)
+    themeControl.appendChild(themeList)
+    themeControl.appendChild(btnThemeSongPlay)
 
     return themeControl
 }
 
-function createThemeButtons(theme){
-    const themeButton = document.createElement('button')
-    themeButton.classList.add('themeButton')
-    themeButton.textContent = theme
+function createThemeButtons(theme, name){
+    const themeOptionButton = document.createElement('button')
+    themeOptionButton.classList.add('themeOptionButton')
+    themeOptionButton.textContent = name
+    themeOptionButton.value = theme
 
-    return themeButton
+    return themeOptionButton
 }
 
 //Rotina para gerar a página de login/cadastro ========================================================

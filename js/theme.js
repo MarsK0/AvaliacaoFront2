@@ -20,22 +20,34 @@ function theme(theme){
         arrBackground = themeRain
     }
     return arrBackground
-    }
+}
 
 background.classList.toggle('slide')
 
 //Habilita/Desabilita botões de troca de tema
-// function themeListAble(){
-//     themeOptionButton.forEach(e => {
-//             e.disabled = false
-//     })
-// }
+export function themeListAble(){
+    let themeOptionButton = document.querySelectorAll('.themeOptionButton') 
+    themeOptionButton.forEach(e => {
+            e.disabled = false
+    })
+}
 
-// function themeListDisable(){
-//     themeOptionButton.forEach(e => {
-//             e.disabled = true
-//     })
-// }
+export function themeListDisable(){
+    let themeOptionButton = document.querySelectorAll('.themeOptionButton') 
+    themeOptionButton.forEach(e => {
+            e.disabled = true
+    })
+}
+
+export function themeListSelect(e){
+    const isNotButton = !(e.target.nodeName === 'BUTTON');
+    if(isNotButton){
+        return
+    }
+
+    themeListDisable()
+    currentBackgroundTheme = e.target.value
+}
 
 //Verifica se houve troca de tema
 function themeUnchanged(){
@@ -93,15 +105,3 @@ export function runTheme(){
         }
     }) 
 }
-
-//Gerencia o evento de clique da troca de temas
-
-// themeList.addEventListener('click', (e)=>{
-//     const isNotButton = !(e.target.nodeName === 'BUTTON');
-//     if(isNotButton){
-//         return
-//     }
-
-//     themeListDisable()
-//     currentBackgroundTheme = e.target.value
-// })
