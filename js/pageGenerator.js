@@ -39,15 +39,16 @@ function createThemeButtons(theme, name){
 
 export function generateIndexPage(){
     const index = document.getElementById('index')
+    const bodyHeader = document.getElementById('bodyHeader')
     const header = document.createElement('header')
-    const main = document.createElement('main')
     const themeControl = createThemeControl()
+    const main = document.createElement('main')
     const accordionUserForms = createAccordionUserForms()
 
     header.appendChild(themeControl)
+    bodyHeader.appendChild(header)
     main.appendChild(accordionUserForms)
 
-    index.appendChild(header)
     index.appendChild(main)
     
 }
@@ -164,9 +165,7 @@ function createFormInput(formInputId){
 export function generateHomePage(){
     const index = document.getElementById('index')
     index.innerHTML = ''
-    const header = document.createElement('header')
     const main = document.createElement('main')
-    const themeControl = createThemeControl()
     const buttonNewMessage = document.createElement('button')
     buttonNewMessage.setAttribute('id','buttonNewMessage')
     buttonNewMessage.textContent = 'Novo Recado'
@@ -181,11 +180,8 @@ export function generateHomePage(){
 
     messageList.appendChild(titleMessageList)
 
-    header.appendChild(themeControl)
-    header.appendChild(buttonNewMessage)
-
+    main.appendChild(buttonNewMessage)
     main.appendChild(messageList)
-
-    index.appendChild(header)
+    
     index.appendChild(main)
 }
