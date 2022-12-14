@@ -18,7 +18,6 @@ setLoginAccordionActive()
 // themeSongPlayer()
 
 //DECLARAÇÕES DE FUNCTIONS ========================================================
-
 function setUserAdmin(){
     let users = JSON.parse(localStorage.getItem('users'))
     let userAdmin = new User('admin','admin',[])
@@ -43,4 +42,3 @@ export function setLoginAccordionActive(){
     formLoginContent.classList.add('accordionActive')
     formLoginContent.style.height = formLoginContent.scrollHeight + 10 + 'px'
 }
-

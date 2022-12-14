@@ -1,80 +1,69 @@
-let msgGlobalId = -1
-const tbody = document.getElementsByTagName('tbody')[0]
+function editMsg(){
+    localStorage.setItem('param','edit')
+}
 
-// if(tbody.children.length === 0){
-//     geraTabela()
-// }
+function newMsg(){
+    localStorage.setItem('param','new')
+}
 
-// editMsgSave.addEventListener('click', ()=>{
-//     let editMsgDesc = document.getElementById('editMsgDesc')
-//     let editMsgDetail = document.getElementById('editMsgDetail')
+function msgManipulation(){
+    let editMsgDesc = document.getElementById('editMsgDesc')
+    let editMsgDetail = document.getElementById('editMsgDetail')
+    const param = JSON.parse(localStorage.getItem('param'))
+
+    if(param === 'new'){
+        if(editMsgDesc.value === '' || editMsgDetail.value === ''){
+            alert('Preencha ambos os campos!')
+            return
+        }
+
+        const users = JSON.parse(localStorage.getItem('users'))
+        const userLogin = JSON.parse(localStorage.getItem('userLogin'))
+        const userLoginArrMsg = userLogin.arrMsg
+
+        let arrMsg = [editMsgDesc.value,editMsgDetail.value]
+
+        userLoginArrMsg.push(arrMsg)
+        users[userLogin.id].arrMsg = userLoginArrMsg
+        
+        localStorage.setItem('userLogin',JSON.stringify(userLogin))
+        localStorage.setItem('users', JSON.stringify(users))
+
+        editMsgDesc.value = ''
+        editMsgDetail.value = ''
+        geraTabela()
+    }
     
-//     if(msgGlobalId === -1){
-//         if(editMsgDesc.value === '' || editMsgDetail.value === ''){
-//             alert('Preencha ambos os campos!')
-//             return
-//         }
+    else if(param === 'edit'){
+        if(editMsgDesc.value === '' || editMsgDetail.value === ''){
+            alert('Preencha ambos os campos!')
+            return
+        }
 
-//         const users = JSON.parse(localStorage.getItem('users'))
-//         const userLogin = JSON.parse(localStorage.getItem('userLogin'))
-//         const userLoginArrMsg = userLogin.arrMsg
+        const users = JSON.parse(localStorage.getItem('users'))
+        const userLogin = JSON.parse(localStorage.getItem('userLogin'))
+        const userLoginArrMsg = userLogin.arrMsg
 
-//         let arrMsg = [editMsgDesc.value,editMsgDetail.value]
-
-//         userLoginArrMsg.push(arrMsg)
-//         users[userLogin.id].arrMsg = userLoginArrMsg
+        userLoginArrMsg[msgGlobalId][0] = editMsgDesc.value
+        userLoginArrMsg[msgGlobalId][1] = editMsgDetail.value
         
-//         localStorage.setItem('userLogin',JSON.stringify(userLogin))
-//         localStorage.setItem('users', JSON.stringify(users))
+        users[userLogin.id].arrMsg = userLoginArrMsg
 
-//         editMsgDesc.value = ''
-//         editMsgDetail.value = ''
-//         geraTabela()
-//     }else{
-//         if(editMsgDesc.value === '' || editMsgDetail.value === ''){
-//             alert('Preencha ambos os campos!')
-//             return
-//         }
+        localStorage.setItem('userLogin', JSON.stringify(userLogin))
+        localStorage.setItem('users', JSON.stringify(users))
 
-//         const users = JSON.parse(localStorage.getItem('users'))
-//         const userLogin = JSON.parse(localStorage.getItem('userLogin'))
-//         const userLoginArrMsg = userLogin.arrMsg
+        editMsgDesc.value = ''
+        editMsgDetail.value = ''
+        msgGlobalId = -1
+        geraTabela()
+    }
+}
 
-//         userLoginArrMsg[msgGlobalId][0] = editMsgDesc.value
-//         userLoginArrMsg[msgGlobalId][1] = editMsgDetail.value
-        
-//         users[userLogin.id].arrMsg = userLoginArrMsg
-
-//         localStorage.setItem('userLogin', JSON.stringify(userLogin))
-//         localStorage.setItem('users', JSON.stringify(users))
-
-//         editMsgDesc.value = ''
-//         editMsgDetail.value = ''
-//         msgGlobalId = -1
-//         geraTabela()
-//     }
-// })
-
-// editMsgCancel.addEventListener('click',()=>{
-//     let editMsgDesc = document.getElementById('editMsgDesc')
-//     let editMsgDetail = document.getElementById('editMsgDetail')
-
-//     if(msgGlobalId === -1){
-//         editMsgDesc.value = ''
-//         editMsgDetail.value = ''
-//     }else{
-//         editMsgDesc.value = ''
-//         editMsgDetail.value = ''
-//         msgGlobalId = -1
-//     }
-// })
 
 //DECLARAÇÕES DE FUNCTIONS ========================================================
-
-
 function geraTabela(){
     let messageList = document.getElementById('messageList')
-    console.log(messageList)
+    
     messageList.innerHTML = ''
     const titleMessageList = document.createElement('h2')
     titleMessageList.textContent = 'Recados'
@@ -144,6 +133,8 @@ function createEditMessageButtons(){
     let editMessageButtons = document.createElement('div')
     let buttonEdit = document.createElement('button')
     buttonEdit.textContent = 'EDITAR'
+    buttonEdit.setAttribute('data-bs-toggle','modal')
+    buttonEdit.setAttribute('data-bs-target','#staticBackdrop')
     let buttonDelete = document.createElement('button')
     buttonDelete.textContent = 'EXCLUIR'
 
@@ -178,6 +169,20 @@ function editMsg(tableMsgListEdit){
 
     msgGlobalId = msgId
     geraTabela()
+}
+
+function editMsgCancel(){
+    let editMsgDesc = document.getElementById('editMsgDesc')
+    let editMsgDetail = document.getElementById('editMsgDetail')
+
+    if(msgGlobalId === -1){
+        editMsgDesc.value = ''
+        editMsgDetail.value = ''
+    }else{
+        editMsgDesc.value = ''
+        editMsgDetail.value = ''
+        msgGlobalId = -1
+    }
 }
 
 function deleteMsg(tableMsgListDelete){

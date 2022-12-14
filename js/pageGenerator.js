@@ -160,12 +160,16 @@ function createFormInput(formInputId){
 
 export function generateHomePage(){
     const index = document.getElementById('index')
+    index.innerHTML = ''
     const header = document.createElement('header')
     const main = document.createElement('main')
     const themeControl = createThemeControl()
     const buttonNewMessage = document.createElement('button')
     buttonNewMessage.setAttribute('id','buttonNewMessage')
     buttonNewMessage.textContent = 'Novo Recado'
+    buttonNewMessage.setAttribute('onclick','newMsg()')
+    buttonNewMessage.setAttribute('data-bs-toggle','modal')
+    buttonNewMessage.setAttribute('data-bs-target','#staticBackdrop')
     const messageList = document.createElement('div')
     messageList.setAttribute('id', 'messageList')
     messageList.classList.add('accordions')

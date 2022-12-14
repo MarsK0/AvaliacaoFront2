@@ -57,4 +57,13 @@ function checkLogin(username, pass, users){
 function login(userLogin){
     localStorage.setItem('userLogin', JSON.stringify(userLogin))
     generateHomePage()
+    home()
+}
+
+function home(){
+    const messageListLength = document.getElementById('messageList').children.length
+    
+    if(messageListLength === 1){
+        geraTabela()
+    }
 }
