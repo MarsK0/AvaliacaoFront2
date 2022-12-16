@@ -90,12 +90,12 @@ function createFormLogin(){
 
     const accordionContent = document.createElement('div')
     accordionContent.classList.add('accordionContent')
-    const formLoginInputUser = createFormInput('formLoginInputUser')
-    const formLoginInputPass = createFormInput('formLoginInputPass')
+    const formLoginInputUser = createFormInput('formLoginInputUser','Usuário')
+    const formLoginInputPass = createFormInput('formLoginInputPass','Senha')
     formLoginInputPass.setAttribute('type','password')
     const formLoginBtnLogin = document.createElement('button')
     formLoginBtnLogin.setAttribute('id','formLoginBtnLogin')
-    formLoginBtnLogin.textContent = 'LOGIN'
+    formLoginBtnLogin.textContent = 'Login'
 
     accordionContent.appendChild(formLoginInputUser)
     accordionContent.appendChild(formLoginInputPass)
@@ -131,14 +131,14 @@ function createFormRegister(){
 
     const accordionContent = document.createElement('div')
     accordionContent.classList.add('accordionContent')
-    const formRegisterInputUser = createFormInput('formRegisterInputUser')
-    const formRegisterInputPass = createFormInput('formRegisterInputPass')
+    const formRegisterInputUser = createFormInput('formRegisterInputUser','Usuário')
+    const formRegisterInputPass = createFormInput('formRegisterInputPass','Senha')
     formRegisterInputPass.setAttribute('type','password')
-    const formRegisterInputRepeatPass = createFormInput('formRegisterInputRepeatPass')
+    const formRegisterInputRepeatPass = createFormInput('formRegisterInputRepeatPass','Repitir senha')
     formRegisterInputRepeatPass.setAttribute('type','password')
     const formRegisterBtnRegister = document.createElement('button')
     formRegisterBtnRegister.setAttribute('id','formRegisterBtnRegister')
-    formRegisterBtnRegister.textContent = 'CADASTRAR'
+    formRegisterBtnRegister.textContent = 'Cadastrar'
 
     accordionContent.appendChild(formRegisterInputUser)
     accordionContent.appendChild(formRegisterInputPass)
@@ -152,9 +152,10 @@ function createFormRegister(){
     return formRegister
 }
 
-function createFormInput(formInputId){
+function createFormInput(formInputId, placeholder){
     const input = document.createElement('input')
     input.setAttribute('id', formInputId)
+    input.setAttribute('placeholder', placeholder)
     input.classList.add('formInput')
 
     return input
