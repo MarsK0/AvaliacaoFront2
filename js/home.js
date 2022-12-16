@@ -71,7 +71,7 @@ function geraTabela(){
             
             accordionHeader.setAttribute('id', `msg${i}`)
             accordionHeaderSpan.textContent = `#${i+1} - ${e[0]}`
-            accordionContent.textContent = e[1]
+            accordionContent.querySelector('p').textContent = e[1]
 
             accordionItem = accordionItemAssemble(
                 accordionItem, 
@@ -114,12 +114,16 @@ function createAccordionHeaderIcon(){
 
 function createAccordionContent(){
     let accordionContent = document.createElement('div')
+    let paragraph = document.createElement('p')
+    paragraph.classList.add('contentMessage')
+    accordionContent.appendChild(paragraph)
     accordionContent.classList.add('accordionContent')
     return accordionContent
 }
 
 function createEditMessageButtons(){
     let editMessageButtons = document.createElement('div')
+    editMessageButtons.classList.add('editMessageButtons')
     let buttonEdit = document.createElement('button')
     buttonEdit.classList.add('msgButtonEdit')
     buttonEdit.textContent = 'EDITAR'
