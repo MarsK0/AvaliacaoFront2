@@ -25,6 +25,7 @@ function msgManipulation(){
         editMsgDesc.value = ''
         editMsgDetail.value = ''
         geraTabela()
+        closeModal()
     }else{
         if(editMsgDesc.value === '' || editMsgDetail.value === ''){
             alert('Preencha ambos os campos!')
@@ -46,6 +47,7 @@ function msgManipulation(){
         editMsgDesc.value = ''
         editMsgDetail.value = ''
         geraTabela()
+        closeModal()
     }
 }
 
@@ -86,7 +88,18 @@ function geraTabela(){
     }
 }
 
+function closeModal(){
+    const staticBackdrop = document.getElementById('staticBackdrop')
+    const modal = bootstrap.Modal.getInstance(staticBackdrop)
+    modal.hide()
+    document.body.removeAttribute('class')
+    const backdrop = document.querySelectorAll('.modal-backdrop')
+    backdrop.forEach((e)=>{
+        e.remove()
+    })
+}
 //Functions auxiliares geraTabela()
+
 function createAccordionItem(){
     let accordionItem = document.createElement('div')
     accordionItem.classList.add('accordionItem')

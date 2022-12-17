@@ -22,20 +22,7 @@ body {
     height: 100%;
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
 
-#index {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 300;
-    width: 100%;
-}
 
 .slide {
     z-index: -1;
@@ -61,6 +48,21 @@ main {
 /* Estilização Index*/
 
  @media screen and (max-width: 576px){
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 450px;
+    }
+    
+    #index {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 300;
+        width: 100%;
+    }
 
     /* Estilização controle do tema*/
 
@@ -102,7 +104,7 @@ main {
         background-image: url(./assets/play.png);
         background-repeat: no-repeat;
         background-size: cover;
-        background-color: rgba(255, 255, 255, 0.5);
+        background-color: rgba(255, 255, 255, 0.25);
         border-radius: 50%;
         height: 75%;
         margin-left: 5px;
@@ -110,17 +112,22 @@ main {
     }
 
     #themeControl > #themeList > .themeOptionButton {
-        background-color: rgba(255, 255, 255, 0.5);
+        font-family: 'theme';
+        font-size: large;
+        background-color: rgba(255, 255, 255, 0.25);
         border: solid 2px black;
         border-radius: 10px;
         margin-bottom: 2px;
     }
 
     #buttonNewMessage {
+        font-family: 'theme';
+        font-size: xx-large;
         background-color: rgba(255, 255, 255, 0.5);
         border: solid 2px black;
         border-radius: 20px;
         width: calc(50% + 95px);
+        max-width: 60vw;
         height: 50px;
     }
 
@@ -142,7 +149,6 @@ main {
         font-family: 'theme';
         font-weight: 500;
         display: flex;
-        position: sticky;
         justify-content: center;
         margin: 0;
         width: 100%;
@@ -216,6 +222,7 @@ main {
     .accordionContent > .contentMessage {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: large;
+        font-weight: 600;
     }
 
     .accordionContent > .editMessageButtons {
@@ -231,11 +238,11 @@ main {
 
     .accordionContent > .editMessageButtons > .msgButtonEdit {
         margin-bottom: 5px; 
-        background-color: rgba(67, 67, 255, 0.75 );
+        background-color: rgba(67, 67, 255, 0.5 );
     }
 
     .accordionContent > .editMessageButtons > .msgButtonDelete {
-        background-color: rgba(255, 0, 0, 0.5);
+        background-color: rgba(255, 0, 0, 0.25);
     }
 
     .accordionActive {
@@ -282,6 +289,269 @@ main {
         max-height: 60vh;
         margin-top: 30px;
         overflow-y: scroll;
+    }
+ }
+
+ /*=================================================================================================*/
+
+ @media screen and (min-width: 577px){
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 750px;
+    }
+    
+    #index {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 300;
+        width: 100%;
+    }
+
+    /* Estilização controle do tema*/
+
+    #bodyHeader {
+        display: flex;
+        justify-content: center;
+    }
+
+    #bodyHeader > header {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        max-width: 450px;
+    }
+
+    #themeControl {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        padding: 15px 0 15px;
+        border: solid 2px black;
+        border-radius: 25px;
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    #themeControl > #themeList {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 50%;
+    }
+
+    #themeControl > #btnThemeSongPlay {
+        display: flex;
+        background-image: url(./assets/play.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: rgba(255, 255, 255, 0.25);
+        border-radius: 50%;
+        height: 75%;
+        margin-left: 5px;
+        aspect-ratio: 1 / 1;
+    }
+
+    #themeControl > #themeList > .themeOptionButton {
+        font-family: 'theme';
+        font-size: large;
+        background-color: rgba(255, 255, 255, 0.25);
+        border: solid 2px black;
+        border-radius: 10px;
+        margin-bottom: 2px;
+    }
+
+    #buttonNewMessage {
+        font-family: 'theme';
+        font-size: xx-large;
+        background-color: rgba(255, 255, 255, 0.5);
+        border: solid 2px black;
+        border-radius: 20px;
+        width: 90%;
+        max-width: 405px;
+        height: 50px;
+    }
+
+    /* Accordions */
+
+    .accordions {
+        display: flex;
+        flex-direction: column;
+        background-color: silver;
+        padding: 0 2% 2% 2%;
+        border-radius: 16px;
+        border: solid 2px black;
+        width: 90%;
+        max-width: 750px;
+    }
+
+    .accordions > h2 {
+        z-index: 1;
+        font-family: 'theme';
+        font-weight: 500;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        width: 100%;
+        top: 0;
+        background-color: rgba(255, 255, 255, 0);
+    }
+    
+    .formAccordion {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .accordionItem {
+        border-radius: 5px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    
+    .accordionItem:hover {
+        opacity: 0.9;
+    }
+    
+    .accordionHeader {
+        padding: .1em;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .accordionHeader > span {
+        font-family: 'theme';
+        font-size: x-large;
+    } 
+
+    .accordionHeader > span, .icon {
+        font-weight: 600;
+    }
+
+    .accordionContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        height: 0;
+        font-size: 1.25em;
+        transition: all .5s ease;
+    }
+
+    .accordionContent > .formInput {
+        border: none;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: large;
+        border-bottom: solid 3px black;
+        background-color: rgba(255, 255, 255, 0);
+        padding: 0 5px 0 5px;
+    }
+
+    .accordionContent > .formInput:focus {
+        outline: none;
+        border: none;
+        font-size: large;
+        border-bottom: solid 3px black;
+        background-color: rgba(255, 255, 255, 0);
+        padding: 0 5px 0 5px;
+    }
+
+    .accordionContent > .formInput::placeholder {
+        color: rgba(0, 0,);
+    }
+
+    .accordionContent > .contentMessage {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: large;
+        font-weight: 600;
+    }
+
+    .accordionContent > .editMessageButtons {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .accordionContent > .editMessageButtons > .msgButtonEdit, .msgButtonDelete {
+        border: solid 2px black;
+        border-radius: 10px;
+        width: 49%;
+    }
+
+    .accordionContent > .editMessageButtons > .msgButtonEdit {
+        background-color: rgba(67, 67, 255, 0.5 );
+    }
+
+    .accordionContent > .editMessageButtons > .msgButtonDelete {
+        background-color: rgba(255, 0, 0, 0.25);
+    }
+
+    .accordionActive {
+        padding-bottom: 10px;
+    }
+    
+    .accordionContent > p {
+        text-align: justify;
+    }
+
+   #formLoginBtnLogin, #formRegisterBtnRegister {
+        font-family: 'theme';
+        margin-top: 10px;
+        font-size: x-large;
+        font-weight: 600;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0);
+        border: solid 2px black;
+        border-radius: 30px;
+   } 
+
+    /* Accordions Forms de Usuário */
+
+    #accordionUserForms {
+        background-color: rgba(255, 255, 255, 0.5);
+        height: min-content;
+        margin-top: calc(60vh/4);
+    }
+
+    .formInput {
+        width: calc(100% - 10px);
+        margin-bottom: 5px;
+    }
+
+    #buttonLogin, #buttonRegister {
+        width: calc(100% - 10px);
+    }
+
+    /* Accordions lista de mensagem*/
+
+    #messageList {
+        height: min-content;
+        background-color: rgba(255, 255, 255, 0.5);
+        max-height: 60vh;
+        margin-top: 30px;
+        overflow-y: scroll;
+    }
+
+    #messageList::-webkit-scrollbar {
+        opacity: 0; 
+        border-radius: 5px;
+        width: 7.5px;
+    }
+    
+    #messageList::-webkit-scrollbar-button {
+        opacity: 0;
+    }
+    
+    #messageList::-webkit-scrollbar-thumb {
+        background-color: rgba(46, 46, 46, 0.5);
+        border-radius: 25px;
     }
  }
 
