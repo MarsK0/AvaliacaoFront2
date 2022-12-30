@@ -4,7 +4,7 @@ import { generateIndexPage } from './js/pageGenerator.js'
 
 export class User {
     constructor(username, password, arrMsg){
-        this.username = username
+        this.username = username.toLowerCase()
         this.password = password
         this.arrMsg = arrMsg
     }

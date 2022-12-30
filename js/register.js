@@ -23,7 +23,7 @@ formRegisterBtnRegister.addEventListener('click',()=>{
 function isUsernameAvailable(username, users){
     users.forEach(e => {
     username = username.toLowerCase()
-    let userRegistered = e.username
+    let userRegistered = (e.username).toLowerCase()
     if(userRegistered === username){
         document.getElementById('formRegisterInputUser').focus()
         throwAlertError('Usuário indisponível')

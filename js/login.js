@@ -43,7 +43,7 @@ function checkLogin(username, pass, users){
     users.forEach((e,i) => {
         username = username.toLowerCase()
 
-        let cadUser = e.username
+        let cadUser = (e.username).toLowerCase()
         let cadPass = e.password
 
         if(cadUser === username && cadPass === pass){
